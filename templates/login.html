@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Login</title>
+</head>
+<!-- Bootstrap core CSS -->
+<link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom fonts for this template -->
+<link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link href="static/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+<!-- Custom styles for this template -->
+<link href="static/css/landing-page.min.css" rel="stylesheet">
+
+{%with messages = get_flashed_messages(with_categories =true)%}
+    {%if messages%}
+        {%for category, message in messages%}
+            <div class="alert alert-{{category}}">
+                {{message}}
+            </div>
+        {%endfor%}
+    {%endif%}
+{% endwith %}
+<body>
+    <div class="container">
+      <h1>Welcome! Please login. </h1>
+      <br>
+      <form method="POST" action="">
+        {{ form.hidden_tag() }}
+
+    <fieldset class="form-group">
+        <legend class ="border-bottom mb-4"> Login </legend>
+        <div class="form-group">
+                {{form.email.label(class="form-control form-control-lg")}}
+
+                {% if form.email.errors %}
+                    {{ form.email(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                       {% for error in form.email.errors %} 
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                </div>
+                {% else %}
+                    {{form.email(class="form-control form-control-lg")}}
+                {% endif %}
+
+        </div>
+        <div class="form-group">
+                {{form.password.label(class="form-control form-control-lg")}}
+                {% if form.password.errors %}
+                {{ form.password(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                   {% for error in form.password.errors %} 
+                    <span>{{ error }}</span>
+                    {% endfor %}
+            </div>
+            {% else %}
+                {{form.password(class="form-control form-control-lg")}}
+            {% endif %}
+            </div>
+            <div class ="form-check">
+                {{form.remember(class="form-check-input")}}
+                {{form.remember.label(class="form-check-label")}}
+            </div>
+    </fieldset>
+        <div class='form-group'>
+            {{form.submit(class="btn btn-outline-info")}}
+        </div>
+        </form>
+    </div>
+  </body>
+</html>

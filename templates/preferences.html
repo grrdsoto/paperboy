@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<style> 
+
+h1{text-align:center;}
+
+</style>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Preferences</title>
+
+<!-- Bootstrap core CSS -->
+<link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom fonts for this template -->
+<link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link href="static/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+<!-- Custom styles for this template -->
+<link href="static/css/landing-page.min.css" rel="stylesheet">
+
+
+
+
+
+</head>
+{%with messages = get_flashed_messages(with_categories =true)%}
+    {%if messages%}
+        {%for category, message in messages%}
+            <div class="alert alert-{{category}}">
+                {{message}}
+            </div>
+        {%endfor%}
+    {%endif%}
+{% endwith %}
+<body>
+<div class='container'>
+    <h1> Preferences</h1>
+    <h3> Make your changes here.</h3>
+</div>
+<div class='container'>
+    
+</div>
+
+</body>
