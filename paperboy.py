@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, flash, redirect
-from forms import RegistrationForm, LoginForm
+from forms import RegistrationForm, LoginForm, PreferencesForm
 # from news import News
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'eea48b1de28faa679e0c9551182d7882'
@@ -8,6 +8,7 @@ app.config['SECRET_KEY'] = 'eea48b1de28faa679e0c9551182d7882'
 def home():
     return render_template('home.html')
 @app.route('/login', methods=['GET','POST'])
+
 def login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -17,8 +18,16 @@ def login():
         else:
             flash('Login Unsuccessful. Please check email/password.', 'danger')
     return render_template('login.html', title="Login", form=form)
+
 @app.route('/preferences', methods=['GET','POST'])
 def preferences():
+    form = PreferencesForm()
+    if form.validate_on_submit():
+        
+        flash('Your changes have been made!', 'success')
+        return redirect(url_for('home'))
+    else:
+        flash('Login Unsuccessful. Please check email/password.', 'danger')
     return render_template('preferences.html')
 
 @app.route('/register', methods=['GET','POST'])

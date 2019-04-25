@@ -1,8 +1,8 @@
 # CSC 386 - Embedded Systems - Project 3
 
-# What's New on the News
+# Project Paperboy
 
-**Author(s)**: __*Dustin Young, Logan Owens, Gerardo Soto, Nick Straub-Deck*__
+**Authors**: __*Dustin Young, Logan Owens, Gerardo Soto, Nick Straub-Deck*__
 
 **Google Document**: __*https://docs.google.com/document/d/1Nam8tC5Jr0Q7ajfDH6HgA16ls2IZVOWDxvBZVnYvSZA/edit#*__
 
@@ -40,14 +40,14 @@ Nick Straub-Deck- Meet with Richmond Register, work on news crawling code, sourc
 
 Dustin Young- Help design website, work on news crawling code, made designs, test website, design login for website, scribe, 
 
-Gerado Soto- Meet with Richmond Register, work on news crawling code, keep Richmond Register up-to-date, design login for website, test website, scribe,
+Gerardo Soto- Meet with Richmond Register, work on news crawling code, keep Richmond Register up-to-date, design login for website, test website, scribe,
 
 
 ## Files
 
 news.py- searches predetermined sources for a user chosen topic. Ex: search The New York Times for Mexico.
 
-app.py- manages hosting of website and it's resources, like design templates.
+paperboy.py- manages hosting of website and it's resources, like design templates.
 
 html files that host the design layouts and templates of the site.
 
