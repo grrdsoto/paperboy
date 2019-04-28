@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, DateField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
-
+from wtforms.fields.html5 import DateField
 
 
 
@@ -22,5 +22,6 @@ class LoginForm(FlaskForm):
 
 class PreferencesForm(FlaskForm):
     query = StringField('Topic', validators=[DataRequired()])
-    time = SelectField('What time', validators=[DataRequired()], choices=[])
+    time = DateField('Start Date', format='%Y-%m-%d')
     sortBy = SelectField('Sort By', validators=[DataRequired()], choices=[('relevancy', 'Relevancy'), ('popularity', 'Popularity'), ('publishedAt', "Published At")])
+    submit = SubmitField('Submit')

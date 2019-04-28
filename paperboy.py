@@ -1,14 +1,19 @@
 from flask import Flask, render_template, url_for, flash, redirect
 from forms import RegistrationForm, LoginForm, PreferencesForm
+from news import news
+import flask_datepicker
 # from news import News
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'eea48b1de28faa679e0c9551182d7882'
+
 @app.route('/')
 @app.route('/home')
-def home():
-    return render_template('home.html')
-@app.route('/login', methods=['GET','POST'])
 
+def home():
+    newsimport = news()
+    return render_template('home.html', news = newsimport)
+
+@app.route('/login', methods=['GET',])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -23,12 +28,9 @@ def login():
 def preferences():
     form = PreferencesForm()
     if form.validate_on_submit():
-        
         flash('Your changes have been made!', 'success')
         return redirect(url_for('home'))
-    else:
-        flash('Login Unsuccessful. Please check email/password.', 'danger')
-    return render_template('preferences.html')
+    return render_template('preferences.html', form=form)
 
 @app.route('/register', methods=['GET','POST'])
 def register():

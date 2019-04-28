@@ -32,6 +32,7 @@ class news():
               print(url)
               response_json = response.json()
               pprint.pprint(response_json)
+              
 news().update()
 
 

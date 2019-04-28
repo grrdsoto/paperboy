@@ -19,7 +19,7 @@
 
 <!-- Custom styles for this template -->
 <link href="static/css/landing-page.min.css" rel="stylesheet">
-
+<!--for flashing messages -->
 {%with messages = get_flashed_messages(with_categories =true)%}
     {%if messages%}
         {%for category, message in messages%}
@@ -29,6 +29,7 @@
         {%endfor%}
     {%endif%}
 {% endwith %}
+<!--Logs the user in-->
 <body>
     <div class="container">
       <h1>Welcome! Please login. </h1>
@@ -39,7 +40,7 @@
     <fieldset class="form-group">
         <legend class ="border-bottom mb-4"> Login </legend>
         <div class="form-group">
-                {{form.email.label(class="form-control form-control-lg")}}
+                {{form.email.label()}}
 
                 {% if form.email.errors %}
                     {{ form.email(class="form-control form-control-lg is-invalid") }}
@@ -54,7 +55,7 @@
 
         </div>
         <div class="form-group">
-                {{form.password.label(class="form-control form-control-lg")}}
+                {{form.password.label()}}
                 {% if form.password.errors %}
                 {{ form.password(class="form-control form-control-lg is-invalid") }}
             <div class="invalid-feedback">
