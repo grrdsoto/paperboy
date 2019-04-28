@@ -39,17 +39,12 @@ h1{text-align:center;}
     </div>
   </nav>
 
-  <!-- Masthead -->
-  <header class="text-white text-center">
-
-    <div class="container">
-      {% for i in %}
-
-
-      </div>
-    </div>
-  </header>
-
+ 
+    <ul id="navigation">
+    {% for article in news['articles'][:10] %}
+        <li> {{article.author}}{{article.content}}{{article.title}}<a>{{article.urlToImage}}</a></li>
+    {% endfor %}
+    </ul>
   <!-- Bootstrap core JavaScript -->
   <script src="static/vendor/jquery/jquery.min.js"></script>
   <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

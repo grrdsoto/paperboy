@@ -23,17 +23,24 @@ class news():
               self.query='breaking-news'
               self.time=date.today()
               self.sortBy='popularity'
+              self.articles=[]
        def update(self,query=None,time=None,sortby=None):
               if query:              self.query=query.replace(' ','-')
               if time:              self.time=time
               if sortby:              self.sortBy=sortby
               url = 'https://newsapi.org/v2/everything?q={0}&from={1}&sortBy={2}&apiKey=0d8fe10ac2ff464bb70e631287fa5009'.format(self.query, self.time,self.sortBy)
               response = requests.get(url,params=url)
-              print(url)
               response_json = response.json()
-              pprint.pprint(response_json)
+              self.articles=response_json
+              # pprint.pprint(response_json)
+              # pprint.pprint(response_json)
+              # with open('news.json', 'w') 
               
-news().update()
+              # f.write(response_json) #this will put the info in the file
+
+              # f.close() #this will close the file handler. AKA free the used memory
+          
+# news().update()
 
 
 
