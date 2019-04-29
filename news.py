@@ -32,7 +32,7 @@ class news():
               response = requests.get(url,params=url)
               response_json = response.json()
               self.articles=response_json
-              # pprint.pprint(response_json)
+              # pprint.pprint(self.articles)
               # pprint.pprint(response_json)
               # with open('news.json', 'w') 
               

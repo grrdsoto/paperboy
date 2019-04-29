@@ -39,16 +39,35 @@ h1{text-align:center;}
     </div>
   </nav>
 
- 
-    <ul id="navigation">
-    {% for article in news['articles'][:10] %}
-         
-            <h1> {{article.title}} </h1>
-            <h6> {{article.author}} from {{article.source['name']}}</h6> 
-            <h3> {{article.content}} </h3>
-            <img src = "{{article.urlToImage}}">     
-    {% endfor %}
-    </ul>
+  <div class='container'>
+      <div class = 'row' >
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <div class='carousel-inner' role='listbox'> 
+              {% for article in news['articles'][:1] %}
+              <div class="item-active">
+              <h1> {{article.title}} </h1>
+              <h6> {{article.author}} from {{article.source['name']}}</h6> 
+              <h3> {{article.content}} </h3>
+              <img src = "{{article.urlToImage}}">
+              </div>
+              {% endfor %}
+              {% for article in news['articles'][2:9] %}
+              <div class="item">
+                  <h1> {{article.title}} </h1>
+                  <h6> {{article.author}} from {{article.source['name']}}</h6> 
+                  <h3> {{article.content}} </h3>
+                  <img src = "{{article.urlToImage}}">
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
   <!-- Bootstrap core JavaScript -->
   <script src="static/vendor/jquery/jquery.min.js"></script>
   <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

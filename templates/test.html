@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img class="d-block w-100" src="..." alt="First slide">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="..." alt="Second slide">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="..." alt="Third slide">
+                  </div>
+                </div>
+              </div>
+    </body>
+
+[:10]
+<div class='container'>
+        <div class = 'row' >
+          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div class='carousel-inner' role='listbox'> 
+              <div class="item-active">
+              {% for article in news['articles'][1:] %}
+              <div class="carousel-title, resize"><h1> {{article.title}} </h1> </div>
+              <div><h6> {{article.author}} from {{article.source['name']}}</h6></div>
+              <div><h3> {{article.content}} </h3></div>
+              <div><img class="resize" src = "{{article.urlToImage}}"></div>
+              {% endfor %}
+              </div>
+              {% for article in news['articles'][1:10] %}
+              <h1> {{article.title}} </h1>
+              <h6> {{article.author}} from {{article.source['name']}}</h6> 
+              <h3> {{article.content}} </h3>
+              <img src = "{{article.urlToImage}}">
+              {% endfor %}
+
+
+
+
+              <div id="myslides" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                          <div class="carousel-title, resize"><h1> {{article.title}} </h1></div>
+                          <div><h6> {{article.author}} </h6></div>
+                          <div><h3> {{article.content}} </h3></div>
+                          <div><img class="resize" src = "{{article.urlToImage}}"></div>
+                      </div>
+                      {% for article in news['articles'][:9] %}
+                      <div class="carousel-item">
+                          <div class="carousel-title, resize"><h1> {{article.title}} </h1> </div>
+                          <div><h6> {{article.author}} from </h6></div>
+                          <div><h3> {{article.content}} </h3></div>
+                          <div><img class="resize" src = "{{article.urlToImage}}"></div>
+                      </div>
+                      {% endfor %}
+                    </div>
+                  </div>
