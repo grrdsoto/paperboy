@@ -42,7 +42,11 @@ h1{text-align:center;}
  
     <ul id="navigation">
     {% for article in news['articles'][:10] %}
-        <li> {{article.author}}{{article.content}}{{article.title}}<a>{{article.urlToImage}}</a></li>
+         
+            <h1> {{article.title}} </h1>
+            <h6> {{article.author}} from {{article.source['name']}}</h6> 
+            <h3> {{article.content}} </h3>
+            <img src = "{{article.urlToImage}}">     
     {% endfor %}
     </ul>
   <!-- Bootstrap core JavaScript -->
