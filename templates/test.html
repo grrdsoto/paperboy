@@ -50,19 +50,115 @@
 
               <div id="myslides" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
-                      <div class="carousel-item active">
-                          <div class="carousel-title, resize"><h1> {{article.title}} </h1></div>
-                          <div><h6> {{article.author}} </h6></div>
+                        {% for article in news['articles'][0] %}
+                      <div class="item active">
+                          <h1> {{article.title}}
+                          <h6> {{article.author}} from {{article.source['name']}}</h6>
                           <div><h3> {{article.content}} </h3></div>
                           <div><img class="resize" src = "{{article.urlToImage}}"></div>
                       </div>
+                      {% endfor %}
                       {% for article in news['articles'][:9] %}
-                      <div class="carousel-item">
-                          <div class="carousel-title, resize"><h1> {{article.title}} </h1> </div>
-                          <div><h6> {{article.author}} from </h6></div>
+                      <div class="item">
+                          <div><h1> {{article.title}} </h1> </div>
+                          <div><h6> {{article.author}} from {{article.source['name']}}</h6></div>
                           <div><h3> {{article.content}} </h3></div>
                           <div><img class="resize" src = "{{article.urlToImage}}"></div>
                       </div>
                       {% endfor %}
                     </div>
                   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <!DOCTYPE html>
+                  <html lang="en">
+                  <style> 
+                  
+                  h1{text-align:center;}
+                  
+                  </style>
+                  
+                  <head>
+                  
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                    <meta name="description" content="">
+                    <meta name="author" content="">
+                  
+                    <title>Project Paperboy</title>
+                  
+                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+                  </head>
+                  
+                  <body>
+                  
+                    <!-- Navigation -->
+                    <nav class="navbar navbar-light bg-light static-top">
+                      <div class="container">
+                          <div class="col-xl-9 mx-auto">
+                              <h1 class="mb-5">The Berea Telegraph</h1>
+                            </div>
+                      </div>
+                    </nav>
+                  
+                    <div class='container'>
+                        <div class = 'row' >
+                          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <div class='carousel-inner' role='listbox'> 
+                                {% for article in news['articles'][:1] %}
+                                <div class="item-active">
+                                <h1> {{article.title}} </h1>
+                                <h6> {{article.author}} from {{article.source['name']}}</h6> 
+                                <h3> {{article.content}} </h3>
+                                <img src = "{{article.urlToImage}}">
+                                </div>
+                                {% endfor %}
+                                {% for article in news['articles'][2:11] %}
+                                <div class="item">
+                                    <h1> {{article.title}} </h1>
+                                    <h6> {{article.author}} from {{article.source['name']}}</h6> 
+                                    <h3> {{article.content}} </h3>
+                                    <img src = "{{article.urlToImage}}">
+                                </div>
+                                {% endfor %}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  
+                  
+                  
+                  
+                    <!-- Bootstrap core JavaScript -->
+                    <script src="static/vendor/jquery/jquery.min.js"></script>
+                    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                  
+                  </body>
+                  
+                  </html>
+                  
